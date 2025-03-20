@@ -1,5 +1,7 @@
 # import pytest
-from src.data_processing import convert_column_to_list
+import sys
+sys.path.append('../src')
+from data_processing import convert_column_to_list
 
 # Example test case: testing the clean_data function
 # def test_clean_data():

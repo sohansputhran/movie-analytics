@@ -62,6 +62,17 @@ def main():
     # Handling outliers in 'runtime'
     movies_df = handling_outliers(movies_df, 'runtime')
 
+    # Split genres into individual genres (if not already done)
+    movies_df['genres'] = movies_df['genres'].fillna('')  # Handling NaN values
+    genres_split = movies_df['genres'].str.split('|', expand=True)
+    # Flatten the list of genres and create a set to get unique genres
+    all_genres = set(genres_split.values.flatten())
+    all_genres.remove(None)
+    all_genres.remove('')
+    # Create a column for each genre with binary values
+    for genre in all_genres:
+        movies_df[genre] = movies_df['genres'].apply(lambda x: 1 if genre in x else 0)
+
     # Convert columns with "|" into a list
     movies_df['production_companies'] = convert_column_to_list(movies_df, 'production_companies')
     movies_df['spoken_languages'] = convert_column_to_list(movies_df, 'spoken_languages')

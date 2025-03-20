@@ -28,7 +28,7 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest  # Run tests (assuming you use pytest for testing)
+        pytest tests/  # Run tests in the 'tests' folder
 
     - name: Lint code
       run: |

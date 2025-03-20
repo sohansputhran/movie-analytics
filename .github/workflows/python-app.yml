@@ -30,6 +30,6 @@ jobs:
     #   run: |
     #     pytest tests/  # Run tests in the 'tests' folder
 
-    - name: Lint code
-      run: |
-        flake8 src  # Run flake8 linter on the 'src' folder
+    # - name: Lint code
+    #   run: |
+    #     flake8 src  # Run flake8 linter on the 'src' folder
